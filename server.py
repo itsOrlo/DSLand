@@ -3,6 +3,7 @@
 
 # Configuración
 
+
 #Librerías py
 import requests,os,base64,glob,time,threading
 if os.path.exists("servidor.py"):
