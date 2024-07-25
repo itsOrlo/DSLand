@@ -18,6 +18,7 @@
 # us-cal-1	      Estados unidos (California)
 
 
+
 # Configuración
 import requests,os,base64,glob,time
 if os.path.exists("servidor.py"):
