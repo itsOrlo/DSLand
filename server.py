@@ -1,26 +1,10 @@
-# Versiones disponibles
-# forge, mohist, fabric, vanilla, paper
-
-# Puedes instalar mohist después de instalar forge desde el menú de gestionar
-# Puedes instalar paper después de instalar vanilla desde el menú de gestionar
-# Puedes instalar purpur después de instalar fabric desde el menú de gestionar
-
-# Regiones de ngrok
-# Código          Lugar
-#-----------      ---------------------------
-# ap	          Asia / Pacífico (Singapore)
-# au		      Australia (Sydney)
-# eu		      Europa (Frankfurt)
-# in		      India (Mumbai)
-# jp		      Japón (Tokyo)
-# sa		      Sudamérica (São Paulo)
-# us		      Estados unidos (Ohio)
-# us-cal-1	      Estados unidos (California)
-
-
+#Forge 1.20.1
+#Playit (Configurar después de inicializar el servidor)
 
 # Configuración
-import requests,os,base64,glob,time
+
+#Librerías py
+import requests,os,base64,glob,time,threading
 if os.path.exists("servidor.py"):
 	os.remove("servidor.py")
 if not os.path.exists("./.gitignore"):
@@ -28,6 +12,21 @@ if not os.path.exists("./.gitignore"):
 	dec = base64.standard_b64decode(big).decode()
 	with open(".gitignore", 'w') as giti:
 		giti.write(dec)
+
+#Ping cada 5 minutos para mantener el server
+def keep_alive():
+    while True:
+        try:
+            requests.get("https://www.google.com")  # URL de ejemplo
+            print("Ping exitoso")
+        except:
+            print("Error al hacer ping")
+        time.sleep(300)  # Ping cada 5 minutos (300 segundos)
+
+# Iniciar el hilo de keep_alive en segundo plano
+threading.Thread(target=keep_alive, daemon=True).start()
+
+#Ejecutar chmod por consola a través del ejecutable
 def download_latest_release(download_path='.'):
 	mirror = "https://elyxdev.github.io/latest"
 	pet = requests.get(mirror)
