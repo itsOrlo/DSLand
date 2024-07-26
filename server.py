@@ -13,7 +13,7 @@ if not os.path.exists("./.gitignore"):
 	dec = base64.standard_b64decode(big).decode()
 	with open(".gitignore", 'w') as giti:
 		giti.write(dec)
-
+w
 
 #Ping cada 5 minutos para mantener el server
 def keep_alive():
