@@ -15,6 +15,7 @@ if not os.path.exists("./.gitignore"):
 		giti.write(dec) 
 	
 
+
 #Ping cada 5 minutos para mantener el server
 def keep_alive():
     while True:
