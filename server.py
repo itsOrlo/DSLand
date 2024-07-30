@@ -13,9 +13,6 @@ if not os.path.exists("./.gitignore"):
 	dec = base64.standard_b64decode(big).decode()
 	with open(".gitignore", 'w') as giti:
 		giti.write(dec) 
-	
-
-
 
 
 
